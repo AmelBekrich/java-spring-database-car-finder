@@ -10,9 +10,19 @@ public class Car {
     private int year;
     private int power;
     private double consumption;
-    private double price;
+    private String fuelType;
+    private int price;
 
     public Car() {
+    }
+
+    @XmlElement(name = "fuelType")
+    public String getFuelType() {
+        return fuelType;
+    }
+
+    public void setFuelType(String fuelType) {
+        this.fuelType = fuelType;
     }
 
     @XmlElement(name = "brand")
@@ -61,11 +71,11 @@ public class Car {
     }
 
     @XmlElement(name = "price")
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 }

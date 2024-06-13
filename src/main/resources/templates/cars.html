@@ -9,21 +9,68 @@
 <form action="/cars/brand" method="get">
     <label for="brand">Brand:</label>
     <input type="text" id="brand" name="brand">
-    <button type="submit">Search</button>
+    <button type="submit">Filter</button><br><br>
 </form>
 <form action="/cars/year" method="get">
     <label for="startingYear">Starting Year:</label>
-    <input type="number" id="startingYear" name="startingYear">
+    <input type="number" id="startingYear" name="startingYear" min="1900" max="2024"><br>
     <label for="endingYear">Ending Year:</label>
-    <input type="number" id="endingYear" name="endingYear">
-    <button type="submit">Search</button>
+    <input type="number" id="endingYear" name="endingYear" min="1900" max="2024"><br>
+    <button type="submit">Filter</button><br><br>
 </form>
 <form action="/cars/consumption" method="get">
-    <label for="lowestConsumption">Lowest Consumption:</label>
-    <input type="number" step="0.1" id="lowestConsumption" name="lowestConsumption">
-    <label for="highestConsumption">Highest Consumption:</label>
-    <input type="number" step="0.1" id="highestConsumption" name="highestConsumption">
-    <button type="submit">Search</button>
+    <label for="fuelType">Fuel Type:</label>
+    <select id="fuelType" name="fuelType" onchange="changeConsumption()">
+        <option value="Choose" selected disabled>Choose and option</option>
+        <option value="All">Select All</option>
+        <option value="Gas">Gas</option>
+        <option value="Hybrid">Hybrid</option>
+        <option value="Electric">Electric</option>
+    </select>
+    <div id="fuels" style="display:none">
+        <label for="lowestConsumption">Lowest Consumption:</label>
+        <input type="number" id="lowestConsumption" name="lowestConsumption" step="0.1"><br>
+        <label for="highestConsumption">Highest Consumption:</label>
+        <input type="number" id="highestConsumption" name="highestConsumption" step="0.1">
+    </div>
+    <button type="submit" id="button" style="display: none">Filter</button>
 </form>
+
+<script>
+    document.getElementById("startingYear").value = 1900;
+    document.getElementById("endingYear").value = 2024;
+    var button = document.getElementById("button");
+
+    function changeConsumption() {
+        var fuelType = document.getElementById("fuelType").value;
+        var fuels = document.getElementById("fuels");
+        button.style.display = "block";
+        if (fuelType === "Gas") {
+            document.getElementById("lowestConsumption").min = 4.6;
+            document.getElementById("highestConsumption").max = 100;
+            document.getElementById("lowestConsumption").value = 4.6;
+            document.getElementById("highestConsumption").value = 100;
+            fuels.style.display = "block";
+        } else if (fuelType === "Hybrid") {
+            document.getElementById("lowestConsumption").min = 0.1;
+            document.getElementById("highestConsumption").max = 4.6;
+            document.getElementById("lowestConsumption").value = 0.1;
+            document.getElementById("highestConsumption").value = 4.5;
+            fuels.style.display = "block";
+        } else if (fuelType === "Electric") {
+            document.getElementById("lowestConsumption").min = 0;
+            document.getElementById("highestConsumption").max = 0;
+            document.getElementById("lowestConsumption").value = 0;
+            document.getElementById("highestConsumption").value = 0;
+            fuels.style.display = "none";
+        } else if (fuelType === "All") {
+            document.getElementById("lowestConsumption").min = 0;
+            document.getElementById("highestConsumption").max = 100;
+            document.getElementById("lowestConsumption").value = 0;
+            document.getElementById("highestConsumption").value = 50;
+            fuels.style.display = "none";
+        }
+    }
+</script>
 </body>
 </html>

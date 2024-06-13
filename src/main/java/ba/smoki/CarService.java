@@ -27,25 +27,34 @@ public class CarService {
         }
     }
 
-    public List<Car> getCarByBrand(String brand) {
+    public List<Car> showCarsByBrand(String brand) {
         return cars.stream()
                 .filter(car -> car.getBrand()
                 .equalsIgnoreCase(brand))
                 .collect(Collectors.toList());
     }
 
-    public List<Car> getCarByYear(int startingYear, int endingYear) {
+    public List<Car> showCarsByYear(int startingYear, int endingYear) {
         return cars.stream()
                 .filter(car -> car.getYear() >= startingYear && car.getYear() <= endingYear)
                 .collect(Collectors.toList());
     }
 
-    public List<Car> getCarByConsumption(Double lowestConsumption, Double highestConsumption) {
+    public List<Car> showCarsByFuel(Double lowestConsumption, Double highestConsumption, String fuelType) {
         return cars.stream()
+                .filter(car -> {
+                    if (fuelType != null && !fuelType.isEmpty()) {
+                        switch (fuelType) {
+                            case "electric": return car.getConsumption() == 0;
+                            case "hybrid": return car.getConsumption() > 0 && car.getConsumption() < 4;
+                            case "gas": return car.getConsumption() > 4;
+                            default: return car.getConsumption() >= 0 && car.getConsumption() <= 100;
+                        }
+                    }
+                    return true;
+                })
                 .filter(car -> (lowestConsumption == null || car.getConsumption() >= lowestConsumption) &&
                         (highestConsumption == null || car.getConsumption() <= highestConsumption))
                 .collect(Collectors.toList());
     }
-
-
 }
