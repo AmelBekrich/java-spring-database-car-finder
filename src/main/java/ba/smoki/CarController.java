@@ -36,7 +36,9 @@ public class CarController {
     }
 
     @GetMapping("/consumption")
-    public String showCarsByFuel(@RequestParam(required = false) double lowestConsumption,@RequestParam(required = false) double highestConsumption,@RequestParam(required = false) String fuelType, Model model) {
+    public String showCarsByFuel(@RequestParam(required = false) Double lowestConsumption,@RequestParam(required = false)
+            Double highestConsumption,@RequestParam(required = false)
+            String fuelType, Model model) {
         List<Car> carList = carService.showCarsByFuel(lowestConsumption, highestConsumption, fuelType);
         model.addAttribute("cars", carList);
         return "car-list";

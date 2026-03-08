@@ -1,134 +1,131 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Car Filter</title>
+    <meta charset="UTF-8">
+    <title>Car Filters</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f8fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
         }
 
         h1 {
             text-align: center;
-            color: #333;
+            color: #2c3e50;
         }
 
         form {
             background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
         }
 
         label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #34495e;
         }
 
         input[type="text"],
         input[type="number"],
         select {
-            width: calc(100% - 22px);
-            padding: 8px;
-            margin-bottom: 10px;
+            padding: 10px 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0,123,255,0.2);
         }
 
         button[type="submit"] {
-            padding: 10px 20px;
             background-color: #007bff;
             color: #fff;
             border: none;
-            border-radius: 4px;
+            padding: 12px;
+            font-size: 15px;
+            border-radius: 10px;
+            margin-right: 320px;
+            margin-left: 320px;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         button[type="submit"]:hover {
             background-color: #0056b3;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-            color: #333;
-        }
-
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-
         #fuels {
             display: none;
-            margin-top: 10px;
+            margin-bottom: 15px;
         }
 
-        #fuels label {
-            margin-right: 10px;
+        .inline-fields {
+            display: flex;
+            gap: 10px;
         }
 
-        #button {
-            display: block;
-            margin-top: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-
-        #button:hover {
-            background-color: #0056b3;
+        @media(max-width: 600px){
+            .container { padding: 10px; }
+            .inline-fields { flex-direction: column; }
         }
     </style>
 </head>
 <body>
-<h1>Car Filters</h1>
-<form action="/cars/brand" method="get">
-    <label for="brand">Brand:</label>
-    <input type="text" id="brand" name="brand">
-    <button type="submit" id="brandButton">Filter</button><br><br>
-</form>
-<form action="/cars/year" method="get">
-    <label for="startingYear">Starting Year:</label>
-    <input type="number" id="startingYear" name="startingYear" min="1900" max="2024"><br>
-    <label for="endingYear">Ending Year:</label>
-    <input type="number" id="endingYear" name="endingYear" min="1900" max="2024"><br>
-    <button type="submit">Filter</button><br><br>
-</form>
-<form action="/cars/consumption" method="get">
-    <label for="fuelType">Fuel Type:</label>
-    <select id="fuelType" name="fuelType" onchange="changeConsumption()">
-        <option value="Choose" selected disabled>Choose and option</option>
-        <option value="All">Select All</option>
-        <option value="Gas">Gas</option>
-        <option value="Hybrid">Hybrid</option>
-        <option value="Electric">Electric</option>
-    </select>
-    <div id="fuels" style="display:none">
-        <label for="lowestConsumption">Lowest Consumption:</label>
-        <input type="number" id="lowestConsumption" name="lowestConsumption" step="0.1"><br>
-        <label for="highestConsumption">Highest Consumption:</label>
-        <input type="number" id="highestConsumption" name="highestConsumption" step="0.1">
-    </div>
-    <button type="submit" id="button" style="display: none">Filter</button>
-</form>
+<div class="container">
+    <h1>Car Filters</h1>
+
+    <form action="/cars/brand" method="get">
+        <label for="brand">Brand:</label>
+        <input type="text" id="brand" name="brand" placeholder="Enter brand">
+        <button type="submit">Filter</button>
+    </form>
+
+    <form action="/cars/year" method="get">
+        <label>Year Range:</label>
+        <div class="inline-fields">
+            <input type="number" id="startingYear" name="startingYear" min="1900" max="2024" placeholder="From">
+            <input type="number" id="endingYear" name="endingYear" min="1900" max="2024" placeholder="To">
+        </div>
+        <button type="submit">Filter</button>
+    </form>
+
+    <form action="/cars/consumption" method="get">
+        <label for="fuelType">Fuel Type:</label>
+        <select id="fuelType" name="fuelType" onchange="changeConsumption()">
+            <option value="" selected disabled>Select fuel type</option>
+            <option value="All">All</option>
+            <option value="Gas">Gas</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="Electric">Electric</option>
+        </select>
+
+        <div id="fuels" class="inline-fields">
+            <input type="number" id="lowestConsumption" name="lowestConsumption" step="0.1" placeholder="Min consumption">
+            <input type="number" id="highestConsumption" name="highestConsumption" step="0.1" placeholder="Max consumption">
+        </div>
+
+        <button type="submit" id="button" style="display:none">Filter</button>
+    </form>
+</div>
 
 <script>
     document.getElementById("startingYear").value = 1900;
@@ -139,29 +136,22 @@
         var fuelType = document.getElementById("fuelType").value;
         var fuels = document.getElementById("fuels");
         button.style.display = "block";
+
         if (fuelType === "Gas") {
             document.getElementById("lowestConsumption").min = 4.6;
             document.getElementById("highestConsumption").max = 100;
             document.getElementById("lowestConsumption").value = 4.6;
             document.getElementById("highestConsumption").value = 100;
-            fuels.style.display = "block";
+            fuels.style.display = "flex";
         } else if (fuelType === "Hybrid") {
             document.getElementById("lowestConsumption").min = 0.1;
-            document.getElementById("highestConsumption").max = 4.6;
+            document.getElementById("highestConsumption").max = 4.5;
             document.getElementById("lowestConsumption").value = 0.1;
             document.getElementById("highestConsumption").value = 4.5;
-            fuels.style.display = "block";
+            fuels.style.display = "flex";
         } else if (fuelType === "Electric") {
-            document.getElementById("lowestConsumption").min = 0;
-            document.getElementById("highestConsumption").max = 0;
-            document.getElementById("lowestConsumption").value = 0;
-            document.getElementById("highestConsumption").value = 0;
             fuels.style.display = "none";
         } else if (fuelType === "All") {
-            document.getElementById("lowestConsumption").min = 0;
-            document.getElementById("highestConsumption").max = 100;
-            document.getElementById("lowestConsumption").value = 0;
-            document.getElementById("highestConsumption").value = 50;
             fuels.style.display = "none";
         }
     }

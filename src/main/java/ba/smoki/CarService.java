@@ -22,12 +22,21 @@ public class CarService {
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             Cars carWrapper = (Cars) unmarshaller.unmarshal(carFile);
             this.cars = carWrapper.getCars();
+
+            for (Car car: cars) {
+                if (car.getConsumption() == 0) car.setFuelType("Electric");
+                else if (car.getConsumption() > 0 && car.getConsumption() < 4) car.setFuelType("Hybrid");
+                else car.setFuelType("Gas");
+            }
         } catch (JAXBException e) {
             System.out.println(e.getMessage());
         }
     }
 
     public List<Car> showCarsByBrand(String brand) {
+        if (brand == null || brand.isBlank()) {
+            return cars;
+        }
         return cars.stream()
                 .filter(car -> car.getBrand()
                 .equalsIgnoreCase(brand))
@@ -43,13 +52,11 @@ public class CarService {
     public List<Car> showCarsByFuel(Double lowestConsumption, Double highestConsumption, String fuelType) {
         return cars.stream()
                 .filter(car -> {
-                    if (fuelType != null && !fuelType.isEmpty()) {
-                        switch (fuelType) {
-                            case "electric": return car.getConsumption() == 0;
-                            case "hybrid": return car.getConsumption() > 0 && car.getConsumption() < 4;
-                            case "gas": return car.getConsumption() > 4;
-                            default: return car.getConsumption() >= 0 && car.getConsumption() <= 100;
-                        }
+                    if (fuelType != null &&
+                            !fuelType.isEmpty() &&
+                            !fuelType.equalsIgnoreCase("All")) {
+                        return car.getFuelType() != null &&
+                                car.getFuelType().equalsIgnoreCase(fuelType);
                     }
                     return true;
                 })

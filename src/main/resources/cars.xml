@@ -5,6 +5,7 @@
         <year>2011</year>
         <power>150</power>
         <consumption>7.6</consumption>
+        <fuelType>Gas</fuelType>
         <price>36430</price>
     </car>
     <car>
@@ -13,6 +14,7 @@
         <year>2013</year>
         <power>68</power>
         <consumption>6.6</consumption>
+        <fuelType>Gas</fuelType>
         <price>9995</price>
     </car>
     <car>
@@ -21,6 +23,7 @@
         <year>2013</year>
         <power>510</power>
         <consumption>13.5</consumption>
+        <fuelType>Gas</fuelType>
         <price>262908</price>
     </car>
     <car>
@@ -29,6 +32,7 @@
         <year>2017</year>
         <power>136</power>
         <consumption>0</consumption>
+        <fuelType>Electric</fuelType>
         <price>39250</price>
     </car>
     <car>
@@ -37,6 +41,7 @@
         <year>2019</year>
         <power>204</power>
         <consumption>0</consumption>
+        <fuelType>Electric</fuelType>
         <price>43970</price>
     </car>
     <car>
@@ -45,6 +50,7 @@
         <year>2020</year>
         <power>145</power>
         <consumption>0</consumption>
+        <fuelType>Electric</fuelType>
         <price>43970</price>
     </car>
     <car>
@@ -53,6 +59,7 @@
         <year>2013</year>
         <power>160</power>
         <consumption>11.1</consumption>
+        <fuelType>Gas</fuelType>
         <price>40990</price>
     </car>
     <car>
@@ -61,6 +68,7 @@
         <year>2018</year>
         <power>192</power>
         <consumption>6.8</consumption>
+        <fuelType>Hybrid</fuelType>
         <price>47394</price>
     </car>
     <car>
@@ -69,6 +77,7 @@
         <year>2017</year>
         <power>116</power>
         <consumption>5.8</consumption>
+        <fuelType>Gas</fuelType>
         <price>29550</price>
     </car>
     <car>
@@ -77,6 +86,7 @@
         <year>2019</year>
         <power>122</power>
         <consumption>3.1</consumption>
+        <fuelType>Hybrid</fuelType>
         <price>29860</price>
     </car>
     <car>
@@ -85,6 +95,7 @@
         <year>2016</year>
         <power>90</power>
         <consumption>5.8</consumption>
+        <fuelType>Gas</fuelType>
         <price>14290</price>
     </car>
     <car>
@@ -93,6 +104,7 @@
         <year>2012</year>
         <power>517</power>
         <consumption>24.3</consumption>
+        <fuelType>Gas</fuelType>
         <price>304951</price>
     </car>
     <car>
@@ -101,6 +113,7 @@
         <year>2020</year>
         <power>95</power>
         <consumption>0</consumption>
+        <fuelType>Electric</fuelType>
         <price>23900</price>
     </car>
     <car>
@@ -109,6 +122,7 @@
         <year>2012</year>
         <power>200</power>
         <consumption>11.5</consumption>
+        <fuelType>Gas</fuelType>
         <price>57570</price>
     </car>
     <car>
@@ -117,6 +131,7 @@
         <year>2015</year>
         <power>125</power>
         <consumption>6.4</consumption>
+        <fuelType>Gas</fuelType>
         <price>27695</price>
     </car>
 </cars>
