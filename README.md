@@ -1,7 +1,7 @@
 # Car filtering application
 
-A simple Spring Boot web application that loads car data from an XML file and allows users to browse and filter cars based on brand name, 
-model year and fuel type.
+A simple Spring Boot Web application that loads car data from a database and allows users to browse 
+and filter cars based on brand, production year and fuel type.
 
 
 ## Features
@@ -9,12 +9,14 @@ model year and fuel type.
   - Filter cars by brand
   - Filter cars by year
   - Filter cars by fuel type
-  - Load data from an XML file
+  - Load data from a database
   - Display results in a table on a web page
 
 ## Technologies 
 
   - Java
   - Spring Boot
-  - JAXB
+  - Spring Boot JPA
+  - SQL
+  - Thymeleaf
   - Java Streams
