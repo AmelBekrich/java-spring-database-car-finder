@@ -1,29 +1,104 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Car List</title>
+    <meta charset="UTF-8">
+    <title>Filtered Car List</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f8fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f4f6f9;
+        }
+
+        tr:hover {
+            background-color: #e2e8f0;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            margin-top: 25px;
+            color: #007bff;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media(max-width: 600px){
+            table, th, td {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-<h1>Cars</h1>
-<table border="1">
-    <tr>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Year</th>
-        <th>Power</th>
-        <th>Consumption</th>
-        <th>Fuel Type</th>
-        <th>Price</th>
-    </tr>
-    <tr th:each="car : ${cars}">
-        <td th:text="${car.brand}"></td>
-        <td th:text="${car.model}"></td>
-        <td th:text="${car.year}"></td>
-        <td th:text="${car.power}"></td>
-        <td th:text="${car.consumption}"></td>
-        <td th:text="${car.fuelType}"></td>
-        <td th:text="${car.price}"></td>
-    </tr>
-</table>
+<div class="container">
+    <h1>Filtered Cars</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Power (kW)</th>
+            <th>Consumption (l/100km)</th>
+            <th>Fuel Type</th>
+            <th>Price (EUR)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.brand}"></td>
+            <td th:text="${car.model}"></td>
+            <td th:text="${car.year}"></td>
+            <td th:text="${car.power}"></td>
+            <td th:text="${car.consumption}"></td>
+            <td th:text="${car.fuelType}"></td>
+            <td th:text="${car.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/cars">Back to Filters</a>
+</div>
 </body>
 </html>

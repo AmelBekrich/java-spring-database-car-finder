@@ -11,16 +11,16 @@ public class CarDataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Car car = new Car();
-        car.setBrand("Peugeot");
-        car.setModel("208");
-        car.setYear(2022);
-        car.setFuelType("Gas");
-        car.setPower(55);
-        car.setConsumption(6.5);
-        car.setPrice(11800);
-
-        carRepository.save(car);
+//        Car car = new Car();
+//        car.setBrand("Peugeot");
+//        car.setModel("208");
+//        car.setYear(2022);
+//        car.setFuelType("Gas");
+//        car.setPower(55);
+//        car.setConsumption(6.5);
+//        car.setPrice(11800);
+//
+//        carRepository.save(car);
 
     }
 }

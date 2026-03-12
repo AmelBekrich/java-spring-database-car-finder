@@ -11,20 +11,35 @@ import org.thymeleaf.model.IModel;
 import java.util.List;
 
 @Controller
-@RequestMapping("/cars")
 public class CarController {
 
     @Autowired
     private CarService carService;
 
-    @GetMapping
-    public String displayCars(@RequestParam(required = false) String brand,
-                              @RequestParam(required = false) Integer startYear,
-                              @RequestParam(required = false) Integer endYear,
-                              @RequestParam(required = false) String fuelType,
-                              Model model) {
-        List<Car> cars = carService.filterCars(brand, startYear, endYear, fuelType);
+    @GetMapping("/cars")
+    public String mainPage() {
+        return "car-filters";
+    }
+
+    @GetMapping("/cars/brand")
+    public String showCarsBrand(@RequestParam String brand, Model model) {
+        List<Car> cars = carService.showCarsBrand(brand);
         model.addAttribute("cars", cars);
         return "car-list";
     }
+
+    @GetMapping("/cars/year")
+    public String showCarsYear(@RequestParam int startingYear, @RequestParam int endingYear, Model model) {
+        List<Car> cars = carService.showCarsYear(startingYear, endingYear);
+        model.addAttribute("cars", cars);
+        return "car-list";
+    }
+
+    @GetMapping("/cars/consumption")
+    public String showCarsConsumption(@RequestParam String fuelType, Model model) {
+        List<Car> cars = carService.showCarsFuelType(fuelType);
+        model.addAttribute("cars", cars);
+        return "car-list";
+    }
+
 }
