@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8375734c-d42f-4dc7-9add-2c2ed19a6b16" name="Changes" comment="Fix String-to-Double conversion error">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ba/smoki/CarDataLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ba/smoki/CarRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cars.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cars.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ba/smoki/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/smoki/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ba/smoki/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/smoki/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ba/smoki/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/smoki/CarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ba/smoki/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/smoki/CarService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ba/smoki/Cars.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cars.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/car-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cars.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +28,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -31,7 +44,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
-    "url": "https://github.com/AmelBekrich/java-xml-car-finder.git",
+    "url": "https://github.com/AmelBekrich/java-spring-car-finder.git",
     "accountId": "ef0357b7-5407-4e0d-b3c2-bdeb7a993854"
   }
 }]]></component>

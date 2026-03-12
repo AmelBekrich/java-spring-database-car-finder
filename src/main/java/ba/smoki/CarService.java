@@ -1,67 +1,43 @@
 package ba.smoki;
 
-import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-import java.io.File;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class CarService {
-    private List<Car> cars;
+    private final CarRepository carRepository;
 
-    @PostConstruct
-    public void init() {
-        try {
-            File carFile = new File("/Users/amelbekrich/IdeaProjects/CarsAssignment/src/main/resources/cars.xml");
-            JAXBContext jaxbContext = JAXBContext.newInstance(Cars.class);
-            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            Cars carWrapper = (Cars) unmarshaller.unmarshal(carFile);
-            this.cars = carWrapper.getCars();
+    @Autowired
+    public CarService(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
 
-            for (Car car: cars) {
-                if (car.getConsumption() == 0) car.setFuelType("Electric");
-                else if (car.getConsumption() > 0 && car.getConsumption() < 4) car.setFuelType("Hybrid");
-                else car.setFuelType("Gas");
-            }
-        } catch (JAXBException e) {
-            System.out.println(e.getMessage());
+    public List<Car> filterCars(String brand, Integer startYear, Integer endYear, String fuelType) {
+        if (brand == null && startYear == null && endYear == null && fuelType == null) {
+            return carRepository.findAll();
         }
-    }
 
-    public List<Car> showCarsByBrand(String brand) {
-        if (brand == null || brand.isBlank()) {
-            return cars;
+        List<Car> cars = carRepository.findAll();
+        if (brand != null && !brand.isEmpty()) {
+            cars = cars.stream()
+                    .filter(c -> c.getBrand().equalsIgnoreCase(brand))
+                    .toList();
         }
-        return cars.stream()
-                .filter(car -> car.getBrand()
-                .equalsIgnoreCase(brand))
-                .collect(Collectors.toList());
+
+        if (startYear != null && endYear != null) {
+            cars = cars.stream()
+                    .filter(c -> c.getYear() >= startYear && c.getYear() <= endYear)
+                    .toList();
+        }
+
+        if (fuelType != null && !fuelType.isEmpty()) {
+            cars = cars.stream()
+                    .filter(c -> c.getFuelType().equalsIgnoreCase(fuelType))
+                    .toList();
+        }
+        return cars;
     }
 
-    public List<Car> showCarsByYear(int startingYear, int endingYear) {
-        return cars.stream()
-                .filter(car -> car.getYear() >= startingYear && car.getYear() <= endingYear)
-                .collect(Collectors.toList());
-    }
 
-    public List<Car> showCarsByFuel(Double lowestConsumption, Double highestConsumption, String fuelType) {
-        return cars.stream()
-                .filter(car -> {
-                    if (fuelType != null &&
-                            !fuelType.isEmpty() &&
-                            !fuelType.equalsIgnoreCase("All")) {
-                        return car.getFuelType() != null &&
-                                car.getFuelType().equalsIgnoreCase(fuelType);
-                    }
-                    return true;
-                })
-                .filter(car -> (lowestConsumption == null || car.getConsumption() >= lowestConsumption) &&
-                        (highestConsumption == null || car.getConsumption() <= highestConsumption))
-                .collect(Collectors.toList());
-    }
 }

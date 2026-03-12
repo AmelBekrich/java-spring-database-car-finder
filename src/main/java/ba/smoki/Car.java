@@ -1,31 +1,44 @@
 package ba.smoki;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.persistence.*;
 
-@XmlRootElement(name = "car")
+@Entity
+@Table(name = "cars")
 public class Car {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "brand")
     private String brand;
+    @Column(name = "model")
     private String model;
+    @Column(name = "production_year")
     private int year;
+    @Column(name = "power_kw")
     private int power;
+    @Column(name = "consumption")
     private double consumption;
+    @Column(name = "fuel_type")
     private String fuelType;
+    @Column(name = "price")
     private int price;
 
     public Car() {
     }
 
-    @XmlElement(name = "fuelType")
     public String getFuelType() {
         return fuelType;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public void setFuelType(String fuelType) {
         this.fuelType = fuelType;
     }
 
-    @XmlElement(name = "brand")
     public String getBrand() {
         return brand;
     }
@@ -34,7 +47,6 @@ public class Car {
         this.brand = brand;
     }
 
-    @XmlElement(name = "model")
     public String getModel() {
         return model;
     }
@@ -43,7 +55,6 @@ public class Car {
         this.model = model;
     }
 
-    @XmlElement(name = "year")
     public int getYear() {
         return year;
     }
@@ -52,7 +63,6 @@ public class Car {
         this.year = year;
     }
 
-    @XmlElement(name = "power")
     public int getPower() {
         return power;
     }
@@ -61,7 +71,6 @@ public class Car {
         this.power = power;
     }
 
-    @XmlElement(name = "consumption")
     public double getConsumption() {
         return consumption;
     }
@@ -70,7 +79,6 @@ public class Car {
         this.consumption = consumption;
     }
 
-    @XmlElement(name = "price")
     public int getPrice() {
         return price;
     }
