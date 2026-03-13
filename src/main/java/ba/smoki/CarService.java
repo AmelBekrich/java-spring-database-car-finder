@@ -3,6 +3,11 @@ package ba.smoki;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
+/**
+ * Service layer responsible for business logic.
+ * Handles filtering operations and communication with the repository
+ */
+
 @Service
 public class CarService {
     private final CarRepository carRepository;
@@ -11,7 +16,11 @@ public class CarService {
         this.carRepository = carRepository;
     }
 
-    public List<Car> showCarsBrand(String brand) {
+    /**
+     * Methods responsible for returning cars based on filters
+     */
+
+    public List<Car> getCarsByBrand(String brand) {
         List<Car> cars = carRepository.findAll();
         if (brand == null || brand.isBlank()) {
             return cars;
@@ -21,19 +30,19 @@ public class CarService {
                 .toList();
     }
 
-    public List<Car> showCarsYear(int startYear, int endYear) {
+    public List<Car> getCarsByYear(int startYear, int endYear) {
         return carRepository.findAll().stream()
                 .filter(c -> c.getYear() >= startYear && c.getYear() <= endYear)
                 .toList();
     }
 
-    public List<Car> showCarsFuelType(String fuelType) {
+    public List<Car> getCarsByFuelType(String fuelType) {
         return carRepository.findAll().stream()
                 .filter(c -> c.getFuelType().equalsIgnoreCase(fuelType))
                 .toList();
     }
 
-    // Adding cars into the database
+    // Adding cars to the database
 
     public void saveCar(Car car) {
         carRepository.save(car);
