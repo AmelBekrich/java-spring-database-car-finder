@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8375734c-d42f-4dc7-9add-2c2ed19a6b16" name="Changes" comment="- Add web UI&#10;- Add filtering options">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/add-cars.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/car-filters.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/car-list.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ba/smoki/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/smoki/CarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ba/smoki/CarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/smoki/CarRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ba/smoki/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/smoki/CarService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-cars.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-cars.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/car-filters.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/car-filters.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/car-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/car-list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +79,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/css" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
     </key>
   </component>

@@ -3,111 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Car Filters</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f7f8fa;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
-
-        form {
-            background-color: #fff;
-            padding: 20px 25px;
-            margin-bottom: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #34495e;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        select {
-            padding: 10px 12px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 14px;
-            transition: 0.2s;
-        }
-
-        input:focus,
-        select:focus {
-            outline: none;
-            border-color: #007bff;
-            box-shadow: 0 0 5px rgba(0,123,255,0.2);
-        }
-
-        button[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 12px;
-            font-size: 15px;
-            border-radius: 10px;
-            margin-right: 320px;
-            margin-left: 320px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .add-button {
-            display: block;
-            width: fit-content;
-            margin: 0 auto 25px auto;
-            background-color: #28a745;
-            color: #fff;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 450;
-            transition: 0.3s;
-        }
-
-        .add-button:hover {
-            background-color: #238c3f;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        #fuels {
-            display: none;
-            margin-bottom: 15px;
-        }
-
-        .inline-fields {
-            display: flex;
-            gap: 10px;
-        }
-
-        @media(max-width: 600px){
-            .container { padding: 10px; }
-            .inline-fields { flex-direction: column; }
-        }
-    </style>
+    <link rel="stylesheet" th:href="@{/css/car-filters.css}">
 </head>
+
 <body>
+    <script th:src="@{/js/script.js}"></script>
+
 <div class="container">
     <h1>Car Filters</h1>
 
@@ -118,7 +19,7 @@
     </form>
 
     <form action="/cars/year" method="get">
-        <label>Year Range:</label>
+        <label>Production Year:</label>
         <div class="inline-fields">
             <input type="number" id="startingYear" name="startingYear" min="1900" max="2026" placeholder="From">
             <input type="number" id="endingYear" name="endingYear" min="1900" max="2026" placeholder="To">
@@ -130,7 +31,7 @@
         <label for="fuelType">Fuel Type:</label>
         <select id="fuelType" name="fuelType" onchange="changeConsumption()">
             <option value="" selected disabled>Select fuel type</option>
-            <option value="All">All</option>
+            <option value="All">Show All</option>
             <option value="Gas">Gas</option>
             <option value="Hybrid">Hybrid</option>
             <option value="Electric">Electric</option>
@@ -147,34 +48,5 @@
     <a href="/cars/add" class="add-button">Add Car</a>
 </div>
 
-<script>
-    document.getElementById("startingYear").value = 1900;
-    document.getElementById("endingYear").value = 2026;
-    var button = document.getElementById("button");
-
-    function changeConsumption() {
-        var fuelType = document.getElementById("fuelType").value;
-        var fuels = document.getElementById("fuels");
-        button.style.display = "block";
-
-        if (fuelType === "Gas") {
-            document.getElementById("lowestConsumption").min = 4.6;
-            document.getElementById("highestConsumption").max = 100;
-            document.getElementById("lowestConsumption").value = 4.6;
-            document.getElementById("highestConsumption").value = 100;
-            fuels.style.display = "flex";
-        } else if (fuelType === "Hybrid") {
-            document.getElementById("lowestConsumption").min = 0.1;
-            document.getElementById("highestConsumption").max = 4.5;
-            document.getElementById("lowestConsumption").value = 0.1;
-            document.getElementById("highestConsumption").value = 4.5;
-            fuels.style.display = "flex";
-        } else if (fuelType === "Electric") {
-            fuels.style.display = "none";
-        } else if (fuelType === "All") {
-            fuels.style.display = "none";
-        }
-    }
-</script>
 </body>
 </html>
