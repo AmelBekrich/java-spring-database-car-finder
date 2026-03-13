@@ -41,7 +41,10 @@ public class CarController {
 
     @GetMapping("/cars/consumption")
     public String getCarsByConsumption(@RequestParam String fuelType, Model model) {
-        List<Car> cars = carService.getCarsByFuelType(fuelType);
+        List<Car> cars;
+        if (fuelType.equalsIgnoreCase("All")) {
+            cars = carService.getAllCars();
+        } else cars = carService.getCarsByFuelType(fuelType);
         model.addAttribute("cars", cars);
         return "car-list";
     }

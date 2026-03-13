@@ -20,6 +20,10 @@ public class CarService {
      * Methods responsible for returning cars based on filters
      */
 
+    public List<Car> getAllCars() {
+        return carRepository.findAll();
+    }
+
     public List<Car> getCarsByBrand(String brand) {
         List<Car> cars = carRepository.findAll();
         if (brand == null || brand.isBlank()) {
