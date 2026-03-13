@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8375734c-d42f-4dc7-9add-2c2ed19a6b16" name="Changes" comment="Add car-list template file">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/car-filters.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+    <list default="true" id="8375734c-d42f-4dc7-9add-2c2ed19a6b16" name="Changes" comment="- Add web UI&#10;- Add filtering options">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/add-cars.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ba/smoki/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/smoki/CarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/smoki/CarDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/smoki/CarDataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ba/smoki/CarDataLoader.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ba/smoki/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/smoki/CarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/car-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/car-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/car-filters.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/car-filters.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773319907824</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="- Add web UI&#10;- Add filtering options">
+      <option name="closed" value="true" />
+      <created>1773332980677</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1773332980677</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -174,7 +181,8 @@
     <MESSAGE value="Fix String-to-Double conversion error" />
     <MESSAGE value="Spring Boot Web first commint&#10;&#10;- Make connection to database&#10;- Add cars to database" />
     <MESSAGE value="Add car-list template file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add car-list template file" />
+    <MESSAGE value="- Add web UI&#10;- Add filtering options" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Add web UI&#10;- Add filtering options" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

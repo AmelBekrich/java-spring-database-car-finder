@@ -69,6 +69,24 @@
             transition: 0.3s;
         }
 
+        .add-button {
+            display: block;
+            width: fit-content;
+            margin: 0 auto 25px auto;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 450;
+            transition: 0.3s;
+        }
+
+        .add-button:hover {
+            background-color: #238c3f;
+        }
+
         button[type="submit"]:hover {
             background-color: #0056b3;
         }
@@ -125,6 +143,8 @@
 
         <button type="submit" id="button" style="display:none">Filter</button>
     </form>
+
+    <a href="/cars/add" class="add-button">Add Car</a>
 </div>
 
 <script>

@@ -1,6 +1,5 @@
 package ba.smoki;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -13,7 +12,11 @@ public class CarService {
     }
 
     public List<Car> showCarsBrand(String brand) {
-        return carRepository.findAll().stream()
+        List<Car> cars = carRepository.findAll();
+        if (brand == null || brand.isBlank()) {
+            return cars;
+        }
+        return cars.stream()
                 .filter(c -> c.getBrand().equalsIgnoreCase(brand))
                 .toList();
     }
@@ -30,4 +33,9 @@ public class CarService {
                 .toList();
     }
 
+    // Adding cars into the database
+
+    public void saveCar(Car car) {
+        carRepository.save(car);
+    }
 }
