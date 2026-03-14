@@ -25,5 +25,6 @@ Users can also add new cars to the database.
 
 ## How to run
 
-  - Run App.java
+  - Start local server
+  - In IDE, run App.java
   - In a browser, go to localhost:8080/cars
