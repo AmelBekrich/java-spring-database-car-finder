@@ -82,16 +82,17 @@ body {
             color: #0056b3;
         }
 
-        .pagination span {
+        .pagination span span {
+            font-weight: bold;
+        }
+
+        .page-span {
             padding: 8px 12px;
             border-radius: 8px;
             background-color: #f1f1f1;
             color: #2c3e50;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .pagination span span {
-            font-weight: bold;
+            word-spacing: 8px;
         }
 
         @media(max-width: 600px){

@@ -36,7 +36,7 @@
 
     <div class="pagination">
         <div th:if="${searchType == 'cars/brand'}">
-            <span>Page <span th:text="${currentPage + 1}"></span> of <span th:text="${totalPages}"></span></span>
+            <span class="page-span">Page <span th:text="${currentPage + 1}"></span> of <span th:text="${totalPages}"></span></span>
             <a th:if="${currentPage > 0}"
                th:href="@{/cars/brand/results(page=${currentPage - 1}, brand=${brand})}">Previous
             </a>
@@ -45,7 +45,7 @@
         </div>
 
         <div th:if="${searchType == 'cars/year'}">
-            <span>Page <span th:text="${currentPage + 1}"></span> of <span th:text="${totalPages}"></span></span>
+            <span class="page-span">Page <span th:text="${currentPage + 1}"></span> of <span th:text="${totalPages}"></span></span>
             <a th:if="${currentPage > 0}"
                th:href="@{/cars/year/results(page=${currentPage - 1}, startingYear=${startingYear}, endingYear=${endingYear})}">Previous</a>
             <a th:if="${currentPage < totalPages - 1}"
@@ -53,7 +53,7 @@
         </div>
 
         <div th:if="${searchType == 'cars/consumption'}">
-            <span>Page <span th:text="${currentPage + 1}"></span> of <span th:text="${totalPages}"></span></span>
+            <span class="page-span">Page <span th:text="${currentPage + 1}"></span> of <span th:text="${totalPages}"></span></span>
             <a th:if="${currentPage > 0}"
                th:href="@{/cars/consumption/results(page=${currentPage - 1}, fuelType=${fuelType}, lowestConsumption=${lowestConsumption}, highestConsumption=${highestConsumption})}">Previous</a>
             <a th:if="${currentPage < totalPages - 1}"
