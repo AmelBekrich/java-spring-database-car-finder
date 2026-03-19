@@ -12,13 +12,13 @@
 <div class="container">
     <h1>Car Filters</h1>
 
-    <form action="/cars/brand" method="get">
+    <form action="/cars/brand/results" method="get">
         <label for="brand">Brand:</label>
         <input type="text" id="brand" name="brand" placeholder="Enter brand">
         <button type="submit">Filter</button>
     </form>
 
-    <form action="/cars/year" method="get">
+    <form action="/cars/year/results" method="get">
         <label>Production Year:</label>
         <div class="inline-fields">
             <input type="number" id="startingYear" name="startingYear" min="1900" max="2026" placeholder="From">
@@ -27,7 +27,7 @@
         <button type="submit">Filter</button>
     </form>
 
-    <form action="/cars/consumption" method="get">
+    <form action="/cars/consumption/results" method="get">
         <label for="fuelType">Fuel Type:</label>
         <select id="fuelType" name="fuelType" onchange="changeConsumption()">
             <option value="" selected disabled>Select fuel type</option>

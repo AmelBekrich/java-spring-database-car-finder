@@ -1,6 +1,7 @@
 package ba.smoki;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,27 +26,47 @@ public class CarController {
         return "car-filters";
     }
 
-    @GetMapping("/cars/brand")
-    public String getCarsByBrand(@RequestParam String brand, Model model) {
-        List<Car> cars = carService.getCarsByBrand(brand);
-        model.addAttribute("cars", cars);
+    @GetMapping("/cars/brand/results")
+    public String getCarsByBrand(@RequestParam(required = false) String brand,
+                                 @RequestParam(defaultValue = "0") int page,
+                                 Model model) {
+        Page<Car> carPage = carService.carsPagination(brand, null, null, null, null, null,  page);
+        model.addAttribute("cars", carPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", carPage.getTotalPages());
+        model.addAttribute("brand", brand);
+        model.addAttribute("searchType", "cars/brand");
         return "car-list";
     }
 
-    @GetMapping("/cars/year")
-    public String getCarsByYear(@RequestParam int startingYear, @RequestParam int endingYear, Model model) {
-        List<Car> cars = carService.getCarsByYear(startingYear, endingYear);
-        model.addAttribute("cars", cars);
+    @GetMapping("/cars/year/results")
+    public String getCarsByYear(@RequestParam int startingYear, @RequestParam int endingYear,
+                                @RequestParam(defaultValue = "0") int page,
+                                Model model) {
+        Page<Car> carPage = carService.carsPagination(null, startingYear, endingYear, null, null, null, page);
+        model.addAttribute("cars", carPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", carPage.getTotalPages());
+        model.addAttribute("startingYear", startingYear);
+        model.addAttribute("endingYear", endingYear);
+        model.addAttribute("searchType", "cars/year");
         return "car-list";
     }
 
-    @GetMapping("/cars/consumption")
+    @GetMapping("/cars/consumption/results")
     public String getCarsByConsumption(@RequestParam String fuelType,
                                        @RequestParam(required = false) Double lowestConsumption,
                                        @RequestParam(required = false) Double highestConsumption,
+                                       @RequestParam(defaultValue = "0") int page,
                                        Model model) {
-        List<Car> cars = carService.getCarsByFuelType(fuelType, lowestConsumption, highestConsumption);
-        model.addAttribute("cars", cars);
+        Page<Car> carPage = carService.carsPagination(null, null, null, fuelType, lowestConsumption, highestConsumption, page);
+        model.addAttribute("cars", carPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", carPage.getTotalPages());
+        model.addAttribute("fuelType", fuelType);
+        model.addAttribute("lowestConsumption", lowestConsumption);
+        model.addAttribute("highestConsumption", highestConsumption);
+        model.addAttribute("searchType", "cars/consumption");
         return "car-list";
     }
 

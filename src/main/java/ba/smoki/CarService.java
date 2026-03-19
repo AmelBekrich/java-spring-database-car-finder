@@ -1,5 +1,7 @@
 package ba.smoki;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,6 +26,37 @@ public class CarService {
 
     public List<Car> getAllCars() {
         return carRepository.findAll();
+    }
+
+    public Page<Car> carsPagination(String brand, Integer startingYear, Integer endingYear, String fuelType, Double lowestConsumption, Double highestConsumption, int page) {
+        List<Car> cars = carRepository.findAll();
+        if (brand != null && !brand.isEmpty()) {
+            cars = cars.stream()
+                    .filter(c -> c.getBrand().equalsIgnoreCase(brand))
+                    .toList();
+        }
+        if (startingYear != null && endingYear != null) {
+            cars = cars.stream()
+                    .filter(c -> c.getYear() >= startingYear && c.getYear() <= endingYear)
+                    .toList();
+        }
+        if (fuelType != null && !fuelType.equalsIgnoreCase("All")) {
+            cars = cars.stream()
+                    .filter(c -> c.getFuelType().equalsIgnoreCase(fuelType))
+                    .toList();
+        }
+        if (lowestConsumption != null && highestConsumption != null) {
+            cars = cars.stream()
+                    .filter(c -> c.getConsumption() >= lowestConsumption && c.getConsumption() <= highestConsumption)
+                    .toList();
+        }
+
+        int pageSize = 10;
+        int start = page * pageSize;
+        int end = Math.min(start + pageSize, cars.size());
+
+        List<Car> pageContent = cars.subList(start, end);
+        return new org.springframework.data.domain.PageImpl<>(pageContent, PageRequest.of(page, pageSize), cars.size());
     }
 
     public List<Car> getCarsByBrand(String brand) {
