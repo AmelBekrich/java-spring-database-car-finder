@@ -1,6 +1,8 @@
 package ba.smoki;
 
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,10 +42,20 @@ public class CarService {
                 .toList();
     }
 
-    public List<Car> getCarsByFuelType(String fuelType) {
-        return carRepository.findAll().stream()
-                .filter(c -> c.getFuelType().equalsIgnoreCase(fuelType))
-                .toList();
+    public List<Car> getCarsByFuelType(String fuelType, Double lowestConsumption, Double highestConsumption) {
+        List<Car> cars = carRepository.findAll();
+        if (fuelType != null && !fuelType.equalsIgnoreCase("All")) {
+            cars = cars.stream()
+                    .filter(c -> c.getFuelType().equalsIgnoreCase(fuelType))
+                    .toList();
+        }
+
+        if (lowestConsumption != null && highestConsumption != null) {
+            cars = cars.stream()
+                    .filter(c -> c.getConsumption() >= lowestConsumption && c.getConsumption() <= highestConsumption)
+                    .toList();
+        }
+        return cars;
     }
 
     // Adding cars to the database

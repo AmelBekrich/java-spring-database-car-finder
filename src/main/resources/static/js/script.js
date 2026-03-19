@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("lowestConsumption").value = 4.6;
             document.getElementById("highestConsumption").value = 100;
             fuels.style.display = "flex";
+        } else if (fuelType === "Diesel") {
+            document.getElementById("lowestConsumption").min = 4.6;
+            document.getElementById("highestConsumption").max = 100;
+            document.getElementById("lowestConsumption").value = 4.6;
+            document.getElementById("highestConsumption").value = 100;
+            fuels.style.display = "flex";
         } else if (fuelType === "Hybrid") {
             document.getElementById("lowestConsumption").min = 0.1;
             document.getElementById("highestConsumption").max = 4.5;
