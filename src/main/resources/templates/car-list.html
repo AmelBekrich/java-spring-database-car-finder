@@ -10,25 +10,27 @@
 <div class="container">
     <h1>Filtered Cars</h1>
 
-    <form method="get" th:action="@{'/' + ${searchType} + '/results'}">
-        <input type="hidden" name="brand" th:value="${brand}">
-        <input type="hidden" name="startingYear" th:value="${startingYear}">
-        <input type="hidden" name="endingYear" th:value="${endingYear}">
-        <input type="hidden" name="fuelType" th:value="${fuelType}">
-        <input type="hidden" name="lowestConsumption" th:value="${lowestConsumption}">
-        <input type="hidden" name="higherConsumption" th:value="${higherConsumption}">
+    <div class="sort-container">
+        <form method="get" th:action="@{'/' + ${searchType} + '/results'}">
+            <input type="hidden" name="brand" th:value="${brand}">
+            <input type="hidden" name="startingYear" th:value="${startingYear}">
+            <input type="hidden" name="endingYear" th:value="${endingYear}">
+            <input type="hidden" name="fuelType" th:value="${fuelType}">
+            <input type="hidden" name="lowestConsumption" th:value="${lowestConsumption}">
+            <input type="hidden" name="higherConsumption" th:value="${higherConsumption}">
 
-        <label for="sort">Sort By:</label>
-        <select name="sort" onchange="this.form.submit()">
-            <option value="">Relevance</option>
-            <option value="price_ascending">Lowest Price</option>
-            <option value="price_descending">Highest Price</option>
-            <option value="year_ascending">Oldest</option>
-            <option value="year_descending">Newest</option>
-            <option value="consumption_ascending">Lowest Consumption</option>
-            <option value="consumption_descending">Highest Consumption</option>
-        </select>
-    </form>
+            <label for="sort">Sort By:</label>
+            <select name="sort" onchange="this.form.submit()">
+                <option value="" th:selected="${sort == null or sort == ''}">Relevance</option>
+                <option value="price_ascending" th:selected="${sort == 'price_ascending'}">Lowest Price</option>
+                <option value="price_descending" th:selected="${sort == 'price_descending'}">Highest Price</option>
+                <option value="year_ascending" th:selected="${sort == 'year_ascending'}">Oldest</option>
+                <option value="year_descending" th:selected="${sort == 'year_descending'}">Newest</option>
+                <option value="consumption_ascending" th:selected="${sort == 'consumption_ascending'}">Lowest Consumption</option>
+                <option value="consumption_descending" th:selected="${sort == 'consumption_descending'}">Highest Consumption</option>
+            </select>
+        </form>
+    </div>
 
     <table>
         <thead>
