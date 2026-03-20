@@ -13,6 +13,7 @@ Users can also add new cars to the database.
   - Load cars from a database
   - Add new cars to the database
   - Display results in a table on a web page
+  - Sorting cars by price, year, consumption
 
 ## Technologies 
 
