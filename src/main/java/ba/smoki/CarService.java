@@ -5,6 +5,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -28,7 +29,7 @@ public class CarService {
         return carRepository.findAll();
     }
 
-    public Page<Car> carsPagination(String brand, Integer startingYear, Integer endingYear, String fuelType, Double lowestConsumption, Double highestConsumption, int page) {
+    public Page<Car> carsPagination(String brand, Integer startingYear, Integer endingYear, String fuelType, Double lowestConsumption, Double highestConsumption, int page, String sort) {
         List<Car> cars = carRepository.findAll();
         if (brand != null && !brand.isEmpty()) {
             cars = cars.stream()
@@ -49,6 +50,35 @@ public class CarService {
             cars = cars.stream()
                     .filter(c -> c.getConsumption() >= lowestConsumption && c.getConsumption() <= highestConsumption)
                     .toList();
+        }
+
+        if (sort != null && !sort.isEmpty()) {
+            switch (sort) {
+                case "price_ascending": cars = cars.stream()
+                        .sorted(Comparator.comparing(Car::getPrice))
+                        .toList();
+                break;
+                case "price_descending": cars = cars.stream()
+                        .sorted(Comparator.comparing(Car::getPrice).reversed())
+                        .toList();
+                break;
+                case "year_ascending": cars = cars.stream()
+                        .sorted(Comparator.comparing(Car::getYear))
+                        .toList();
+                break;
+                case "year_descending": cars = cars.stream()
+                        .sorted(Comparator.comparing(Car::getYear).reversed())
+                        .toList();
+                break;
+                case "consumption_ascending": cars = cars.stream()
+                        .sorted(Comparator.comparing(Car::getConsumption))
+                        .toList();
+                break;
+                case "consumption_descending": cars = cars.stream()
+                        .sorted(Comparator.comparing(Car::getConsumption).reversed())
+                        .toList();
+                break;
+            }
         }
 
         int pageSize = 10;
