@@ -36,6 +36,8 @@ public class CarController {
         model.addAttribute("cars", carPage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", carPage.getTotalPages());
+        model.addAttribute("displayedCars", carPage.getNumberOfElements());
+        model.addAttribute("totalCars", carPage.getTotalElements());
         model.addAttribute("brand", brand);
         model.addAttribute("modelSearch", modelSearch);
         model.addAttribute("searchType", "cars/brand");
@@ -52,6 +54,8 @@ public class CarController {
         model.addAttribute("cars", carPage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", carPage.getTotalPages());
+        model.addAttribute("displayedCars", carPage.getNumberOfElements());
+        model.addAttribute("totalCars", carPage.getTotalElements());
         model.addAttribute("startingYear", startingYear);
         model.addAttribute("endingYear", endingYear);
         model.addAttribute("searchType", "cars/year");
@@ -70,6 +74,8 @@ public class CarController {
         model.addAttribute("cars", carPage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", carPage.getTotalPages());
+        model.addAttribute("displayedCars", carPage.getNumberOfElements());
+        model.addAttribute("totalCars", carPage.getTotalElements());
         model.addAttribute("fuelType", fuelType);
         model.addAttribute("lowestConsumption", lowestConsumption);
         model.addAttribute("highestConsumption", highestConsumption);

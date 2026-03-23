@@ -11,6 +11,8 @@
     <h1>Filtered Cars</h1>
 
     <div class="sort-container">
+        <p class="cars" th:text="${displayedCars} + ' / ' + ${totalCars} + ' cars'"></p>
+
         <form method="get" th:action="@{'/' + ${searchType} + '/results'}">
             <input type="hidden" name="brand" th:value="${brand}">
             <input type="hidden" name="startingYear" th:value="${startingYear}">
