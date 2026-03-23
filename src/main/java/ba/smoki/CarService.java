@@ -29,11 +29,16 @@ public class CarService {
         return carRepository.findAll();
     }
 
-    public Page<Car> carsPagination(String brand, Integer startingYear, Integer endingYear, String fuelType, Double lowestConsumption, Double highestConsumption, int page, String sort) {
+    public Page<Car> carsPagination(String brand, String modelSearch, Integer startingYear, Integer endingYear, String fuelType, Double lowestConsumption, Double highestConsumption, int page, String sort) {
         List<Car> cars = carRepository.findAll();
         if (brand != null && !brand.isEmpty()) {
             cars = cars.stream()
                     .filter(c -> c.getBrand().equalsIgnoreCase(brand))
+                    .toList();
+        }
+        if (modelSearch != null && !modelSearch.isEmpty()) {
+            cars = cars.stream()
+                    .filter(c -> c.getModel().equalsIgnoreCase(modelSearch))
                     .toList();
         }
         if (startingYear != null && endingYear != null) {

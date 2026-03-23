@@ -28,14 +28,16 @@ public class CarController {
 
     @GetMapping("/cars/brand/results")
     public String getCarsByBrand(@RequestParam(required = false) String brand,
+                                 @RequestParam(required = false) String modelSearch,
                                  @RequestParam(defaultValue = "0") int page,
                                  @RequestParam(required = false) String sort,
                                  Model model) {
-        Page<Car> carPage = carService.carsPagination(brand, null, null, null, null, null,  page, sort);
+        Page<Car> carPage = carService.carsPagination(brand, modelSearch,null, null, null, null, null,  page, sort);
         model.addAttribute("cars", carPage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", carPage.getTotalPages());
         model.addAttribute("brand", brand);
+        model.addAttribute("modelSearch", modelSearch);
         model.addAttribute("searchType", "cars/brand");
         model.addAttribute("sort", sort);
         return "car-list";
@@ -46,7 +48,7 @@ public class CarController {
                                 @RequestParam(defaultValue = "0") int page,
                                 @RequestParam(required = false) String sort,
                                 Model model) {
-        Page<Car> carPage = carService.carsPagination(null, startingYear, endingYear, null, null, null, page, sort);
+        Page<Car> carPage = carService.carsPagination(null, null, startingYear, endingYear, null, null, null, page, sort);
         model.addAttribute("cars", carPage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", carPage.getTotalPages());
@@ -64,7 +66,7 @@ public class CarController {
                                        @RequestParam(defaultValue = "0") int page,
                                        @RequestParam(required = false) String sort,
                                        Model model) {
-        Page<Car> carPage = carService.carsPagination(null, null, null, fuelType, lowestConsumption, highestConsumption, page, sort);
+        Page<Car> carPage = carService.carsPagination(null, null, null, null, fuelType, lowestConsumption, highestConsumption, page, sort);
         model.addAttribute("cars", carPage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", carPage.getTotalPages());

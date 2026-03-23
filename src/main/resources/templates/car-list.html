@@ -61,10 +61,10 @@
         <div th:if="${searchType == 'cars/brand'}">
             <span class="page-span">Page <span th:text="${currentPage + 1}"></span> of <span th:text="${totalPages}"></span></span>
             <a th:if="${currentPage > 0}"
-               th:href="@{/cars/brand/results(page=${currentPage - 1}, brand=${brand}, sort=${sort})}">Previous
+               th:href="@{/cars/brand/results(page=${currentPage - 1}, brand=${brand}, modelSearch=${modelSearch}, sort=${sort})}">Previous
             </a>
             <a th:if="${currentPage < totalPages - 1}"
-               th:href="@{/cars/brand/results(page=${currentPage + 1}, brand=${brand}, sort=${sort})}">Next</a>
+               th:href="@{/cars/brand/results(page=${currentPage + 1}, brand=${brand}, modelSearch=${modelSearch}, sort=${sort})}">Next</a>
         </div>
 
         <div th:if="${searchType == 'cars/year'}">

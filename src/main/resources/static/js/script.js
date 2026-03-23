@@ -2,6 +2,17 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("startingYear").value = 1900;
     document.getElementById("endingYear").value = 2026;
 
+    function handleBrand() {
+        const brand = document.getElementById("brand").value.trim();
+        const model = document.getElementById("modelSearch");
+        model.disabled = brand.length === 0;
+    }
+
+    const brandInput = document.getElementById("brand");
+    if (brandInput) {
+        brandInput.addEventListener("input", handleBrand);
+    }
+
     window.changeConsumption = function() {
         var fuelType = document.getElementById("fuelType").value;
         var fuels = document.getElementById("fuels");

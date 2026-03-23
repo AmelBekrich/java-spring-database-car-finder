@@ -14,7 +14,9 @@
 
     <form action="/cars/brand/results" method="get">
         <label for="brand">Brand:</label>
-        <input type="text" id="brand" name="brand" placeholder="Enter brand">
+        <input type="text" id="brand" name="brand" placeholder="Enter brand" oninput="handleBrand()">
+        <label for="modelSearch">Model:</label>
+        <input type="text" name="modelSearch" id="modelSearch" placeholder="Enter model" disabled>
         <button type="submit">Filter</button>
     </form>
 
