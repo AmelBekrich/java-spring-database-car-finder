@@ -17,7 +17,7 @@
             <input type="hidden" name="endingYear" th:value="${endingYear}">
             <input type="hidden" name="fuelType" th:value="${fuelType}">
             <input type="hidden" name="lowestConsumption" th:value="${lowestConsumption}">
-            <input type="hidden" name="higherConsumption" th:value="${higherConsumption}">
+            <input type="hidden" name="highestConsumption" th:value="${highestConsumption}">
 
             <label for="sort">Sort By:</label>
             <select name="sort" onchange="this.form.submit()">
@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <a href="/cars">Back to Filters</a>
+    <a href="/cars">Back to Home Page</a>
 </div>
 </body>
 </html>
