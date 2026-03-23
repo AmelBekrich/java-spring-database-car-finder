@@ -9,8 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * Service layer responsible for business logic.
- * Handles filtering operations and communication with the repository
+ * Service layer - Handles filtering operations and communication with the repository
  */
 
 @Service
