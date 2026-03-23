@@ -8,11 +8,13 @@ Users can also add new cars to the database.
 ## Features
 
   - Filter cars by brand
+  - Filter cars by model
   - Filter cars by production year
   - Filter cars by fuel type
   - Load cars from a database
   - Add new cars to the database
   - Display results in a table on a web page
+  - Display current number of loaded cars in the table
   - Sorting cars by price, year, consumption
 
 ## Technologies 
