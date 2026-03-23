@@ -32,13 +32,15 @@ public class CarService {
     public Page<Car> carsPagination(String brand, String modelSearch, Integer startingYear, Integer endingYear, String fuelType, Double lowestConsumption, Double highestConsumption, int page, String sort) {
         List<Car> cars = carRepository.findAll();
         if (brand != null && !brand.isEmpty()) {
+            String lowerBrand = brand.toLowerCase();
             cars = cars.stream()
-                    .filter(c -> c.getBrand().equalsIgnoreCase(brand))
+                    .filter(c -> c.getBrand().toLowerCase().contains(lowerBrand))
                     .toList();
         }
         if (modelSearch != null && !modelSearch.isEmpty()) {
+            String lowerModel = modelSearch.toLowerCase();
             cars = cars.stream()
-                    .filter(c -> c.getModel().equalsIgnoreCase(modelSearch))
+                    .filter(c -> c.getModel().toLowerCase().contains(lowerModel))
                     .toList();
         }
         if (startingYear != null && endingYear != null) {
