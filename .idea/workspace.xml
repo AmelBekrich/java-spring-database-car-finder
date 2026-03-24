@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8375734c-d42f-4dc7-9add-2c2ed19a6b16" name="Changes" comment="Move CSS and JavaScript into separate files&#10;Fix Show All function in Fuel Type field">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ba/smoki/CarControllerAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ba/smoki/CarDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-frontend/car-app-frontend" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/car-app-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/car-app-frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ba/smoki/rest/api/CarControllerAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/smoki/rest/api/CarControllerAPI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,16 +75,17 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/amelbekrich/IdeaProjects/java-spring-car-finder&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/amelbekrich/Downloads/node-v24.14.0-darwin-arm64/bin/node&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;/Users/amelbekrich/Downloads/node-v24.14.0-darwin-arm64/bin/node&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -128,7 +132,8 @@
       <option name="presentableId" value="Default" />
       <updated>1718030354216</updated>
       <workItem from="1774346025055" duration="3555000" />
-      <workItem from="1774349593491" duration="1189000" />
+      <workItem from="1774349593491" duration="5107000" />
+      <workItem from="1774355336648" duration="299000" />
     </task>
     <task id="LOCAL-00001" summary="Car picker web app">
       <option name="closed" value="true" />
