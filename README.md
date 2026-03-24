@@ -18,6 +18,7 @@ The application now also exposes a REST API.
   - Display the current number of loaded cars in the table
   - Sorting cars by price, year, consumption
   - Get car data and add new cars via REST API
+  - Frontend using React
 
 ## Technologies 
 
