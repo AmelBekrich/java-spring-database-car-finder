@@ -1,9 +1,10 @@
 # Car filtering application
 
-A simple Spring Boot Web application that allows users to browse cars based on brand, production year
+Spring Boot Web application that allows users to browse cars based on brand, production year
 and fuel type.
 Users can also add new cars to the database.
 
+The application now also exposes a REST API.
 
 ## Features
 
@@ -16,6 +17,7 @@ Users can also add new cars to the database.
   - Display results in a table on a web page
   - Display the current number of loaded cars in the table
   - Sorting cars by price, year, consumption
+  - Get car data and add new cars via REST API
 
 ## Technologies 
 
@@ -25,8 +27,13 @@ Users can also add new cars to the database.
   - SQL
   - Thymeleaf
   - Java Streams
+  - REST API with Spring Boot
 
 ## How to run
+    
+    - Web frontend
+        - Run App.java
+        - In a browser, go to localhost:8080/cars
 
-  - Run App.java
-  - In a browser, go to localhost:8080/cars
+    - REST API
+        - GET cars: http://localhost:8080/api/cars
