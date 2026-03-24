@@ -33,10 +33,13 @@ public class CarController {
                                  @RequestParam(required = false) String sort,
                                  Model model) {
         Page<Car> carPage = carService.carsPagination(brand, modelSearch,null, null, null, null, null,  page, sort);
+        int pageSize = carPage.getSize();
+        int displayedCars = page * pageSize + carPage.getNumberOfElements();
+
         model.addAttribute("cars", carPage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", carPage.getTotalPages());
-        model.addAttribute("displayedCars", carPage.getNumberOfElements());
+        model.addAttribute("displayedCars", displayedCars);
         model.addAttribute("totalCars", carPage.getTotalElements());
         model.addAttribute("brand", brand);
         model.addAttribute("modelSearch", modelSearch);
@@ -51,10 +54,13 @@ public class CarController {
                                 @RequestParam(required = false) String sort,
                                 Model model) {
         Page<Car> carPage = carService.carsPagination(null, null, startingYear, endingYear, null, null, null, page, sort);
+        int pageSize = carPage.getSize();
+        int displayedCars = page * pageSize + carPage.getNumberOfElements();
+
         model.addAttribute("cars", carPage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", carPage.getTotalPages());
-        model.addAttribute("displayedCars", carPage.getNumberOfElements());
+        model.addAttribute("displayedCars", displayedCars);
         model.addAttribute("totalCars", carPage.getTotalElements());
         model.addAttribute("startingYear", startingYear);
         model.addAttribute("endingYear", endingYear);
@@ -71,10 +77,13 @@ public class CarController {
                                        @RequestParam(required = false) String sort,
                                        Model model) {
         Page<Car> carPage = carService.carsPagination(null, null, null, null, fuelType, lowestConsumption, highestConsumption, page, sort);
+        int pageSize = carPage.getSize();
+        int displayedCars = page * pageSize + carPage.getNumberOfElements();
+
         model.addAttribute("cars", carPage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", carPage.getTotalPages());
-        model.addAttribute("displayedCars", carPage.getNumberOfElements());
+        model.addAttribute("displayedCars", displayedCars);
         model.addAttribute("totalCars", carPage.getTotalElements());
         model.addAttribute("fuelType", fuelType);
         model.addAttribute("lowestConsumption", lowestConsumption);
