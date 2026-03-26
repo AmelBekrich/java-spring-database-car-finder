@@ -20,10 +20,6 @@ public class CarService {
         this.carRepository = carRepository;
     }
 
-    /**
-     * Methods responsible for returning cars based on filters
-     */
-
     public List<Car> getAllCars() {
         return carRepository.findAll();
     }
